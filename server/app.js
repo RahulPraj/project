@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const Product = require('./model/Product');
+const methodOverride = require('method-override');
 
 
 //connect to database
@@ -20,6 +21,7 @@ app.use(express.static(path.join(__dirname,'public')));
 
 //using middleware for my post request
 app.use(express.urlencoded({extended:true}));
+app.use(methodOverride('_method'));
 
 
 //task 1 ->to display all the products
@@ -47,12 +49,18 @@ app.get('/products/:id',async(req,res)=>{
     res.render('show',{product});
 })
 
-//task 5 -> update a particular product
+//task 5 -> see the form of a particular product
 app.get('/products/:id/edit',async(req,res)=>{
     const product = await Product.findById(req.params.id);
     res.render('edit',{product});
 })
 
+// task-6 -> update the product 
+app.patch('/products/:id',async(req,res)=>{
+    const{name,price,description} = req.body;
+    await Product.findByIdAndUpdate(req.params.id ,{name , price, description});
+    res.redirect('/products');
+})
 
 let PORT = 8080;
 app.listen(PORT,()=>{
