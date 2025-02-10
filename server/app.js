@@ -62,6 +62,13 @@ app.patch('/products/:id',async(req,res)=>{
     res.redirect('/products');
 })
 
+
+//Delete the product
+app.delete('/products/:id',async(req,res)=>{
+ await Product.findByIdAndDelete(req.params.id);
+ res.redirect('/products');
+})
+
 let PORT = 8080;
 app.listen(PORT,()=>{
     console.log(`server is conntected on port ${PORT}`)

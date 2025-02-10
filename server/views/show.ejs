@@ -6,6 +6,10 @@
         <p><strong>Price:</strong> $<%= product.price %></p>
         <p><%= product.description %></p>
         <a href="/products/<%= product.id %>/edit">Edit</a>
+
+        <form class="btn" action="/products/<%= product.id%>/?_method=DELETE" method="post">
+            <button>Delete</button>
+        </form>
     </div>
     
 </div>
