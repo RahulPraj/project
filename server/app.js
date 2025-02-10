@@ -42,8 +42,8 @@ app.post('/products',async(req,res)=>{
 })
 
 //task 4 -> show a particular prdouct
-app.get('/products/:id',(req,res)=>{
-    const product = Product.findById(req.params.id);
+app.get('/products/:id',async(req,res)=>{
+    const product = await Product.findById(req.params.id);
     res.render('show',{product});
 })
 

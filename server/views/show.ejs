@@ -1,9 +1,12 @@
 <%- include('partials/header') %>
 <div class="container">
-    <h1><%= product.name %></h1>
-    <img src="<%= product.image %>" alt="<%= product.name %>">
-    <p><strong>Price:</strong> $<%= product.price %></p>
-    <p><%= product.description %></p>
-    <a href="/products/<%= product._id %>/edit">Edit</a>
+    <div class="product-card">
+        <img src="<%= product.image %>" alt="">
+        <h2><%= product.name %></h2>
+        <p><strong>Price:</strong> $<%= product.price %></p>
+        <p><%= product.description %></p>
+        <a href="/products/<%= product.id %>/edit">Edit</a>
+    </div>
+    
 </div>
 <%- include('partials/footer') %>
