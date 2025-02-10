@@ -47,6 +47,12 @@ app.get('/products/:id',async(req,res)=>{
     res.render('show',{product});
 })
 
+//task 5 -> update a particular product
+app.get('/products/:id/edit',async(req,res)=>{
+    const product = await Product.findById(req.params.id);
+    res.render('edit',{product});
+})
+
 
 let PORT = 8080;
 app.listen(PORT,()=>{
