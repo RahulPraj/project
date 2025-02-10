@@ -1,7 +1,7 @@
 <%- include('partials/header') %>
 <div class="container">
     <h1>Edit Product</h1>
-    <form >
+    <form action="/products/<%= product.id %>?_method=PATCH" method="post" >
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="<%= product.name %>" required>
         <label for="image">Image URL:</label>
