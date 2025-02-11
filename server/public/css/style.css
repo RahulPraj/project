@@ -4,8 +4,9 @@ body {
     font-family: 'Georgia', 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100%;
     overflow-x: hidden;
+    width: 100vw;
 }
 
 .head {
@@ -23,6 +24,10 @@ nav {
     background-color: #007bff; /* Blue navbar */
     padding: 10px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 nav .logo a {
@@ -34,7 +39,8 @@ nav .logo a {
 
 nav .nav-links {
     display: flex;
-    gap: 15px;
+    width: 30%;
+    gap: 10px;
 }
 
 nav .nav-links a {
@@ -51,6 +57,12 @@ nav .nav-links a:hover {
 }
 
 /* Card Container */
+h1{
+    text-align: center;
+    font-size: 30px;
+    color: #333;
+    margin-top:70px ;
+}
 .container {
     /* max-width: 1200px; */
     margin: 20px auto;
@@ -60,7 +72,12 @@ nav .nav-links a:hover {
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     display: flex;
     align-items: flex-start;
+    justify-content:space-evenly;
     gap: 10px;
+    width: 90%;
+    /* margin: 20px auto; */
+    flex-wrap: wrap;
+   
     
 }
 
@@ -69,10 +86,13 @@ nav .nav-links a:hover {
     border-radius: 10px;
     padding: 20px;
     margin: 10px 0;
-    width: 200px;
+    width: calc(30% - 150px);
     height: 350px;
     background-color: white;
     transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .product-card:hover {
@@ -119,58 +139,109 @@ nav .nav-links a:hover {
     font-size: 14px;
     transition: background-color 0.3s;
     display: inline-block;
-    margin-top: 10px;
+    margin: 13px auto;
+    width: 80px;
+    text-align: center;
+
 }
 
 .product-card a:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
-/* Form Styles */
-form {
+
+/* show */
+.product-card1 {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px auto;
+    width: 18%;
+    height: 350px;
+    background-color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff; /* White background */
+    justify-content: space-between;
+}
+
+.product-card1:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card1 img {
+    width: 100%; /* Full width of the card */
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: contain; /* Ensures the image fits without distortion */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
 }
 
-form label {
-    font-size: 16px;
+.product-card1 h2 {
+    font-size: 18px;
     color: #333;
-    font-weight: bold;
+    margin: 10px 0;
+    text-align: left;
 }
 
-form input[type='text'],
-form input[type='number'],
-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
+.product-card1 p {
+    font-size: 14px;
+    color: #555;
+    text-align: left;
+    margin: 5px 0;
+}
+
+.product-card1 .price {
+    font-size: 20px;
+    color: #B12704; /* Amazon's price color */
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: left;
+}
+
+
+.product-card1 .btn-group{
+    width: 200px;
+    /* border: 1px solid red; */
+    display: flex;
+    /* justify-content: space-evenly; */
+    margin: 0;
+    gap: 10px;
+
+}
+
+
+
+.btn-group .btn{
+    width: 50px;
+    height: 25%;
+    background-color: #007bff;
+    color: white;
+    border: none;
     border-radius: 5px;
     font-size: 16px;
-    color: #555;
-    transition: border-color 0.3s;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-form input[type='text']:focus,
-form input[type='number']:focus,
-form textarea:focus {
-    border-color: #007bff; /* Blue border on focus */
-    outline: none;
+.product-card1 a {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    text-align: center;
 }
 
-form textarea {
-    resize: vertical;
-    min-height: 100px;
+.product-card1 a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
-
-form button {
+.btn button {
     background-color: #007bff; /* Blue button */
     color: white;
     border: none;
@@ -181,7 +252,67 @@ form button {
     transition: background-color 0.3s;
 }
 
-form button:hover {
+.btn button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Form Styles */
+.new {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 400px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1px auto;
+}
+
+.new label {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+.new input[type='text'],
+.new input[type='number'],
+.new textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #555;
+    transition: border-color 0.3s;
+}
+
+.new input[type='text']:focus,
+.new input[type='number']:focus,
+.new textarea:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none;
+}
+
+.new textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.new button {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.new button:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
@@ -193,9 +324,10 @@ footer {
     padding: 20px;
     margin-top: 20px;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-    position: sticky;
+    /* position: fixed; */
     bottom: 0;
     width: 100vw;
+    z-index: 1000;
 }
 
 footer p {

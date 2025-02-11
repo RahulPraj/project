@@ -1,15 +1,18 @@
 <%- include('partials/header') %>
 <div class="container">
-    <div class="product-card">
+    <div class="product-card1">
         <img src="<%= product.image %>" alt="">
         <h2><%= product.name %></h2>
         <p><strong>Price:</strong> $<%= product.price %></p>
         <p><%= product.description %></p>
-        <a href="/products/<%= product.id %>/edit">Edit</a>
+        <div class="btn-group">
+            <a  href="/products/<%= product.id %>/edit">Edit</a>
 
-        <form class="btn" action="/products/<%= product.id%>/?_method=DELETE" method="post">
-            <button>Delete</button>
-        </form>
+            <form class="btn" action="/products/<%= product.id%>/?_method=DELETE" method="post">
+                <button>Delete</button>
+            </form>
+        </div>
+        
     </div>
     
 </div>

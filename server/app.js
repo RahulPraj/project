@@ -69,7 +69,7 @@ app.delete('/products/:id',async(req,res)=>{
  res.redirect('/products');
 })
 
-let PORT = 8080;
+let PORT = 8000;
 app.listen(PORT,()=>{
     console.log(`server is conntected on port ${PORT}`)
 })
